@@ -1,0 +1,8 @@
+.johnCena {
+  display: flex;
+  justify-content: space-between;
+}
+.jcRight button {
+  width: 15px;
+  height: 14px;
+}

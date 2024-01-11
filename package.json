@@ -1,7 +1,6 @@
 {
   "name": "playerscore",
   "version": "1.0.0",
-  "description": "",
   "scripts": {
     "start": "react-scripts start"
   },
@@ -23,5 +22,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "description": ""
 }

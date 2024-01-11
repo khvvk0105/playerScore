@@ -1,0 +1,7 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.heaLeft h1 {
+  font-size: 29px;
+}
