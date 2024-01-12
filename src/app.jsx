@@ -4,11 +4,41 @@ import "./style/global.css";
 import "./style/text.css";
 import Scores from "./components/Scores";
 import { useState } from "react";
-import "./style/johnsena.css";
 import "./style/reset.css";
+import PlayerBar from "./components/PlayerBar";
 
 export default function App() {
-  const [count, setCount] = useState(0);
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
+  const [count3, setCount3] = useState(0);
+
+  const Arr = [
+    { title: "John Sena1", score: count1, id: 0 },
+    { title: "John Sena2", score: count2, id: 1 },
+    { title: "John Sena3", score: count3, id: 2 },
+  ];
+  const [scores, setScores] = useState[Arr];
+
+  const decrease = () => {
+    const updatedScores = [...scores];
+    updatedScores[id].score--;
+    setScores(updatedScores);
+  };
+
+  const increase = () => {
+    const updatedScores = [...scores];
+    updatedScores[id].score++;
+    setScores(updatedScores);
+  };
+  function reset() {
+    setCount1(0);
+    setCount2(0);
+    setCount3(0);
+  }
+  Arr.sort((a, b) => {
+    return b.score - a.score;
+  });
+
   return (
     <div className="app">
       <div className="header">
@@ -31,17 +61,22 @@ export default function App() {
         </div>
       </div>
       <div className="text1">Hidden in the middle of text</div>
-      <div className="johnCena">
-        <div>
-          <h2>John Sena</h2>
-        </div>
-        <div className="jcRight">
-          <button onClick={() => setCount(count + 1)}>+</button>
-          {count}
-          <button onClick={() => setCount(count - 1)}>-</button>
-        </div>
-      </div>
-      <div className="reset">
+      {scores.map((Arr, index) => {
+        return (
+          <PlayerBar
+            key={index}
+            name={Arr.title}
+            score={Arr.score}
+            countDown={() => {
+              decrease(Arr.id);
+            }}
+            countUp={() => {
+              increase(Arr.id);
+            }}
+          />
+        );
+      })}
+      <div className="reset" onClick={reset}>
         <p>Reset</p>
       </div>
     </div>
